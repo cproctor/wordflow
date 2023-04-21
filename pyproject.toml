@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "wordflow"
+version = "0.1.0"
+description = ""
+authors = ["Chris Proctor <github.com@accounts.chrisproctor.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+wordfreq = "^3.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+match = "wordflow.cli.match:main"
+max = "wordflow.cli.max:main"
+min = "wordflow.cli.min:main"
+order = "wordflow.cli.order:main"
+pluck = "wordflow.cli.pluck:main"
+length = "wordflow.cli.length:main"
+frequency = "wordflow.cli.frequency:main"
+count = "wordflow.cli.count:main"
