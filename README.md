@@ -37,20 +37,28 @@ $ cat words.txt | match "a" | match "e" | match "i" | match "o" | match "u" | le
 ## What are the most common ten-letter words? 
 
 ```
-$ cat words.txt | length | max 10 | min 10 | frequency 1 | order -r | pluck 2 | head
+$ cat words.txt | length | put 10 | equal | frequency 2 | order -r | pluck 3 | head
+```
+
+## What's the longest word which contains no repeated letters? 
+
+```
+$ cat words.txt | length | unique 1 | length | lessthan 0 1 -e | lessthan 1 0 -e | 
 ```
 
 ### Filter
 
 - **match [pattern] [position=0]**: Allows lines where the specified word matches
   regular expression `pattern`. Regular expressions often need to be in quotation marks.
-- **max [value] [position=0]**: Allows lines where the specified number is no 
-  greater than `value`.
-- **min [value] [position=0]**: Allows lines where the specified number is no 
-  less than `value`.
+- **lessthan [position0=0] [position1=1] [-e --equal]**: Allows lines where the number at 
+  position 0 is less than the number at position 1. When `--equal`, lines are also 
+  allowed when the two numbers are equal.
+- **equal [position0=0] [position1=1]**: Allows lines where the number at position 0 
+  is equal to the number at position 1.
 
 ### Map 
 
+- **put [value]** Prepends the value to each line.
 - **length [position=0]** Prepends the length of the specified word to the line.
 - **frequency [position=0]** Prepends the frequency of the specified word 
   (approximate number of occurrences per billion words) to the line. 
