@@ -11,8 +11,8 @@ from argparse import ArgumentParser
 @guard_pipe
 def main():
     parser = ArgumentParser()
-    parser.add_argument('first', type=int, default=0)
-    parser.add_argument('second', type=int, default=1)
+    parser.add_argument('first', type=int, nargs='?', default=0)
+    parser.add_argument('second', type=int, nargs='?', default=1)
     parser.add_argument('-e', '--equal', action='store_true')
     arguments = parser.parse_args()
     for line in sys.stdin:
