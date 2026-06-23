@@ -1,13 +1,21 @@
 [tool.poetry]
 name = "wordflow"
-version = "0.2.5"
+version = "0.2.6"
 description = ""
 authors = ["Chris Proctor <github.com@accounts.chrisproctor.net>"]
 readme = "README.md"
+documentation = "https://docs.makingwithcode.org/wordflow"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 wordfreq = "^3.1.1"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^7.0.1"
+furo = "^2023.5.20"
 
 [build-system]
 requires = ["poetry-core"]
